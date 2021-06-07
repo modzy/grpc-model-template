@@ -1,0 +1,30 @@
+# This file updates the config.yaml by documenting a pointer to the docker container of a model for each version
+# Additionally, the language used in the config.yaml was unnecessarily complicated as there are already docker primitives
+# corresponding to each type of data. Below is a map of how this language was standardized/updated.
+#   host => registry
+#   name => repo_suffix
+#   prefix => repo_prefix
+#   namespace => namespace
+
+dockerMetadata:
+# The dockerMetadata is a list where the first element is the source location that the model image was originally
+# uploaded to. If the image is ever migrated (exported/imported), additional entries can be added to this list in order
+# to trace the movement of the image
+- registry:
+  repo_prefix:
+  repo_suffix:
+
+
+# Example of decomposing a URI in order to fill in the this information:
+#
+# 1234567890123.dkr.ecr.us-east-1.amazonaws.com/models/location/image-classification:0.2.0
+#
+# dockerRepository:
+#  registry: 1234567890123.dkr.ecr.us-east-1.amazonaws.com
+#  repo_prefix: models/location
+#  repo_suffix: image-classification
+#
+# Additionally, the semantic version of the current model is required to be the image tag
+#
+# The id field is a randomly generated uid using 10 lowercase alphanumeric characters
+id:
