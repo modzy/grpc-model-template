@@ -224,7 +224,7 @@ class ModzyModel(ModzyModelServicer):
                         # TODO: we could potentially extract even more information from: stack_trace = e.__traceback__
                         log_stack_trace()
                         output_item = create_output_item(
-                            f"Failed to process model input. Exception Encountered: {stack_trace_formatted}"
+                            f"Failed to process model input. Exception Encountered: {e}"
                         )
                     outputs.append(output_item)
 
